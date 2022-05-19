@@ -81,8 +81,24 @@ main {
 .header {
   position: relative;
   z-index: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  grid-gap: 55px;
   align-items: center;
+}
+
+@media screen and (max-width: 750px) {
+  .header {
+    grid-template-columns: minmax(0, 1fr);
+    grid-gap: 30px;
+    align-items: stretch;
+  }
+}
+
+.header-text {
+  font-weight: 600;
+  font-size: 18px;
+  color: #a4a4a4;
 }
 .header:before {
   content: "";
@@ -880,4 +896,320 @@ a.wi:before {
   display: block;
   height: auto;
   border: 1px solid transparent;
+}
+
+.study {
+  color: white;
+}
+
+.study__heading {
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.study__heading-text {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.study__levels {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-gap: 22px;
+}
+
+.study__levels-accordion-btn {
+  min-height: 75px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  grid-gap: 20px;
+  padding: 10px 30px;
+  background-color: #272928;
+  border: 1px solid #404340;
+  border-radius: 25px;
+  color: white;
+  grid-template-areas: "title unlock count";
+  transition: border-color 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.study__levels-accordion--unlocked .study__levels-accordion-btn {
+  border-color: #38f30a;
+}
+
+.study__levels-accordion-btn-title {
+  margin: 0;
+  padding: 0;
+  grid-area: title;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.study__levels-accordion-btn-unlock {
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+  color: #0399d1;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  grid-area: unlock;
+  white-space: nowrap;
+}
+
+.study__levels-accordion-btn-unlock:link,
+.study__levels-accordion-btn-unlock:visited {
+  color: #0399d1;
+}
+
+.study__levels-accordion-btn-unlock svg {
+  flex-shrink: 0;
+  margin-right: 15px;
+  width: 20px;
+  height: 28px;
+  fill: #696969;
+  transition: fill 0.2s;
+}
+
+.study__levels-accordion-btn-unlock:hover svg {
+  fill: #0399d1;
+}
+
+.study__levels-accordion-btn-videos-count {
+  display: flex;
+  align-items: center;
+  justify-self: flex-end;
+  display: inline-flex;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #878887;
+  grid-area: count;
+}
+
+.study__levels-accordion-btn-videos-count svg {
+  flex-shrink: 0;
+  margin-left: 17px;
+  width: 22px;
+  height: 14px;
+  fill: #686868;
+  transition: transform 0.2s;
+  transform: rotate(180deg);
+}
+
+.js-accordion.active .study__levels-accordion-btn-videos-count svg {
+  transform: rotate(0deg);
+}
+
+.study__levels-accordion-content {
+  height: 0;
+  overflow: hidden;
+}
+
+.study__levels-accordion-content-inner {
+  padding-top: 70px;
+  padding-bottom: 50px;
+}
+
+.study__levels-videos-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 25px;
+  align-items: flex-start;
+}
+
+.study__levels-videos-list-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.study__levels-video-card-image-container {
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  background-color: #272928;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.study__levels-video-card-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.study__levels-accordion:not(.study__levels-accordion--unlocked)
+  .study__levels-video-card-image {
+  opacity: 0.5;
+}
+.study__levels-accordion:not(.study__levels-accordion--unlocked)
+  .study__levels-video-card-image-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/locked-grid.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.study__levels-accordion:not(.study__levels-accordion--unlocked)
+  .study__levels-video-card {
+  pointer-events: none;
+}
+
+.study__levels-video-card-image-container::before {
+  content: "";
+  display: block;
+  padding-bottom: 60%;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.study__levels-video-card-duration {
+  text-align: center;
+  color: #878787;
+  font-size: 12px;
+}
+
+.study__levels-video-card-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  z-index: 5;
+  color: white;
+  font-size: 14px;
+  gap: 8px;
+}
+
+.study__levels-video-card-play {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  fill: white;
+}
+.study__levels-video-card-status-locked {
+  width: 20px;
+  height: 26px;
+  fill: #616161;
+}
+
+.rounds {
+  color: white;
+}
+
+.rounds__heading {
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 35px;
+}
+
+.rounds__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  .rounds__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rounds__list-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.rounds__card {
+  flex-grow: 1;
+  background-color: #272928;
+  color: white;
+  border-radius: 25px;
+  border: 1px solid #474a47;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.rounds__card--unlocked {
+  border-color: #3de512;
+}
+
+.rounds__card:link,
+.rounds__card:visited {
+  color: white;
+}
+
+.rounds__card-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  margin-right: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rounds__card-ok {
+  fill: #3de512;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.rounds__card-content {
+  width: 50%;
+  flex-grow: 1;
+}
+
+.rounds__card-title {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.rounds__card-price {
+  color: #00a5e2;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.rounds__card--unlocked .rounds__card-price {
+  color: #3afe09;
+}
+
+.rounds__card-lock {
+  width: 20px;
+  height: 26px;
+  fill: #00a5e2;
 }
