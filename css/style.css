@@ -1847,10 +1847,10 @@ a.wi:before {
   background-color: rgb(44, 47, 45, 0.7);
   display: flex;
   flex-direction: column;
-  
+
   opacity: 0;
   visibility: hidden;
-  transition: opacity .4s, visibility 0s linear .4s;
+  transition: opacity 0.4s, visibility 0s linear 0.4s;
   z-index: 200;
   overscroll-behavior: contain;
 }
@@ -1858,7 +1858,7 @@ a.wi:before {
 .modal.active {
   opacity: 1;
   visibility: inherit;
-  transition: opacity .4s, visibility .4s;
+  transition: opacity 0.4s, visibility 0.4s;
 }
 
 .modal__inner {
@@ -1906,7 +1906,7 @@ a.wi:before {
 }
 
 .modal__scroll-wrapper {
-  height: 360px;
+  max-height: 360px;
   overflow-y: auto;
   scrollbar-color: #3c3f3d #1f2120;
   scrollbar-width: thin;
@@ -1939,8 +1939,6 @@ a.wi:before {
   color: #8d8d8d;
 }
 
-
-
 .modal__text p {
   margin-bottom: 20px;
 }
@@ -1961,5 +1959,72 @@ a.wi:before {
 
 .modal__link:link,
 .modal__link:visited {
+  color: #00a5e2;
+}
+
+.modal__open-level {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__open-level-heading {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.modal__open-level-price {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #8d8d8d;
+  margin-bottom: 25px;
+}
+
+.modal__open-level-price-heading {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.modal__open-level-price-amount {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.modal__open-level-link {
+  font-size: 14px;
+  line-height: 1.2;
+  border-radius: 15px;
+  color: #00a5e2;
+  background-color: #373938;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  margin-bottom: 30px;
+  align-self: center;
+
+  box-shadow: -0.471px 8.988px 16px 0px rgba(0, 0, 0, 0.29);
+}
+
+.modal__open-level-link:link,
+.modal__open-level-link:visited {
+  color: #00a5e2;
+}
+
+.modal__open-level-balance {
+  color: #8d8d8d;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.modal__open-level-balance a:link,
+.modal__open-level-balance a:visited {
   color: #00a5e2;
 }
