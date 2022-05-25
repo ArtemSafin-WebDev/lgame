@@ -2028,3 +2028,128 @@ a.wi:before {
 .modal__open-level-balance a:visited {
   color: #00a5e2;
 }
+
+.sign-up__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sign-up__logo {
+  margin-bottom: 10px;
+}
+
+.sign-up__logo-image {
+  width: 430px;
+  height: auto;
+}
+
+.sign-up__top-text {
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: #a4a4a4;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.sign-up__heading {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  margin-top: 60px;
+  color: #3afe09;
+}
+
+.sign-up__form {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 356px;
+  margin-top: 35px;
+}
+
+.sign-up__form-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-gap: 25px;
+}
+
+.sign-up__form-label {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: #8d8d8d;
+}
+
+.sign-up__form-input {
+  display: block;
+  height: 50px;
+  text-align: center;
+  border-radius: 15px;
+  border: 1px solid #363636;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: center;
+  color: #00a5e2;
+  width: 100%;
+  background: transparent;
+}
+
+.sign-up__form-input--password {
+  text-transform: uppercase;
+}
+
+.sign-up__form-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  margin-top: 50px;
+}
+
+.sign-up__form-link {
+  font-size: 16px;
+  line-height: 1.2;
+  color: #00a5e2;
+
+  
+}
+
+.sign-up__form-link:hover {
+  text-decoration: underline;
+}
+
+.sign-up__form-link:link,
+.sign-up__form-link:visited {
+  color: #00a5e2;
+}
+
+.sign-up__form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px 60px;
+  font-size: 18px;
+  line-height: 1.2;
+  background-color: #363636;
+  color: #00a5e2;
+  appearance: none;
+  border: none;
+  box-shadow: -0.471px 8.988px 16px 0px rgba(0, 0, 0, 0.29);
+  border-radius: 15px;
+  margin-top: 30px;
+}
+
+.sign-up__copyright {
+  margin-top: 85px;
+  margin-bottom: 50px;
+  color: #686868;
+  font-size: 14px;
+  line-height: 18px;
+}
